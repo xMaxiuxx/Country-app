@@ -1,0 +1,23 @@
+
+  <div class="card-group">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div *ngFor="let country of countries" class="col">
+        <div class="card-container">
+          <div class="card">
+            <img [src]="country.flags.svg" class="card-img-top" alt="{{ country.name.common }} Flag" />
+            <div class="card-body">
+              <h5 class="card-title">{{ country.name.common }}</h5>
+              <p class="card-text">Capital: {{ country.capital }}</p>
+              <p class="card-text">Population: {{ country.population }}</p>
+              <p class="card-text-currency expand-sm">Currencies: {{ getCurrency(country) }}</p>
+              <p class="card-text">Continent: {{ country.region }}</p>
+              <button (click)="addToFavorites(country)" class="btn btn-dark btn-sm">Add to Favorites  ⭐ </button>
+              <br>
+              <button (click)="openGoogleMaps(country)" class="btn btn-dark btn-sm">Open in Google Maps</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
