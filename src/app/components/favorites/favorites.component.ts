@@ -10,7 +10,7 @@ import { Country } from 'src/app/models/country.model';
 })
 export class FavoritesComponent implements OnInit{
   favorites:Country[]=[];
-  
+
   constructor(private favoriteService:FavoriteService){}
 
   ngOnInit(): void {
@@ -19,10 +19,11 @@ export class FavoritesComponent implements OnInit{
 
   loadFavorites():void{
     this.favorites = this.favoriteService.getFavorites();
+    console.log(this.favorites);
   }
   removeFromFavorites(country:Country):void{
     this.favoriteService.removeFavorite(country)
-    this.loadFavorites();//update the list after delete favorite
+    // this.loadFavorites();//update the list after delete favorite
   }
 
   getCurrency(country: Country): string | undefined {

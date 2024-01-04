@@ -4,6 +4,7 @@ import { Country } from 'src/app/models/country.model';
 import { CountryService } from 'src/app/services/country.service';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
 import { FavoriteService } from 'src/app/services/favorite.service';
+// import {MatPaginatorModule} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-country-list',
@@ -41,8 +42,9 @@ export class CountryListComponent implements OnInit, OnDestroy{
 
 
   addToFavorites(country:Country):void{
-    if(!this.favoriteService.isFavorite(country))
-    this.favoriteService.addFavorite(country);
+    if(!this.favoriteService.isFavorite(country)){
+      this.favoriteService.addFavorite(country);
+    }
     this.loadFavorites();
     console.log("Debug Favorites ")
   }

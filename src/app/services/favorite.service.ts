@@ -7,6 +7,7 @@ import { DataSharingService } from './data-sharing.service';
 })
 export class FavoriteService {
   private favorites: Country[]=[]
+
   constructor(private dataSharingService:DataSharingService){
     this.dataSharingService.favoriteCountries$.subscribe((countries)=>{
       this.favorites = countries;
@@ -14,12 +15,14 @@ export class FavoriteService {
   }
 
   getFavorites():Country[] {
+    console.log("Estoy en el getFavorite");
     return this.favorites
   }
   addFavorite(country: Country): void {
     if (!this.isFavorite(country)) {
       this.favorites.push(country);
       this.dataSharingService.updateFavoriteCountries(this.favorites)
+      console.log(this.favorites)
     }
   }
 
